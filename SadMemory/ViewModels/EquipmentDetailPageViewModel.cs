@@ -13,6 +13,14 @@ public partial class EquipmentDetailPageViewModel: ObservableObject
     [RelayCommand]
     private async Task GoBackPage()
     {
-        await Shell.Current.GoToAsync($"..", true);
+        var app = (App)Application.Current;
+        if (app.UseGoto)
+        {
+            await Shell.Current.GoToAsync($"..", true);
+        }
+        else
+        {
+            Shell.Current.Navigation.PopAsync();
+        }
     }
 }

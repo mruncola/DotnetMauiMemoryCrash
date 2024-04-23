@@ -19,6 +19,10 @@
                     HorizontalOptions="Fill" />
                 
                 <Label Text="^ Click Login"></Label>
+                
+                <Button IsVisible="{Binding UsingGoto, Converter={StaticResource NotEqual}}" Command="{Binding SwitchGotoCommand}" Text="Using Push / Pop - Change To GoTo" />
+                <Button IsVisible="{Binding UsingGoto}" Command="{Binding SwitchPushPopCommand}" Text="Using Goto - Change To Push / Pop" />
+                    
 
             </VerticalStackLayout>
         </ScrollView>
