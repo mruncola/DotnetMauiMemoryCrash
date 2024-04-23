@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:SadMemory.ViewModels"
+             x:Class="SadMemory.Pages.EquipmentListPage"
+             x:DataType="viewModels:EquipmentListPageViewModel"
+             xmlns:mtk="clr-namespace:MemoryToolkit.Maui;assembly=MemoryToolkit.Maui"
+             mtk:LeakMonitorBehavior.Cascade="True"
+             mtk:TearDownBehavior.Cascade="True"
+             >
+    <ContentPage.Content>
+        <Grid RowDefinitions="60,*">
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout
+                    Padding="30,0"
+                    Spacing="25">
+
+                    <Label FontAttributes="Bold" Text="TearDownBehavior - Enabled On This Page"></Label>
+                    <Label Text="{Binding Location}"></Label>
+                    <Label Text="{Binding PageTitle}"></Label>
+                    <Button
+                        Text="Open Detail Page"
+                        Command="{Binding GoDetailPageCommand}"
+                        HorizontalOptions="Fill"
+                    />
+                    <Label Padding="30" Text="After this is clicked - give it a second and you will see this page is torn down even though I didn't remove it. I tried with the push / pop mechanism as well and it had a similar result."></Label>
+                </VerticalStackLayout>
+            </ScrollView>
+            <Grid ColumnDefinitions="*,*">
+                <Button
+                    Text="Back"
+                    Command="{Binding GoBackPageCommand}"
+                    HorizontalOptions="Fill"
+                />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

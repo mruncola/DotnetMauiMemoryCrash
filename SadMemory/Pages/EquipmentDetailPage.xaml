@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:SadMemory.ViewModels"
+             x:Class="SadMemory.Pages.EquipmentDetailPage"
+             x:DataType="viewModels:EquipmentDetailPageViewModel"
+             xmlns:mtk="clr-namespace:MemoryToolkit.Maui;assembly=MemoryToolkit.Maui"
+             mtk:LeakMonitorBehavior.Cascade="True"
+             mtk:TearDownBehavior.Cascade="True"
+             >
+    <ContentPage.Content>
+        <Grid RowDefinitions="60,*">
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout
+                    Padding="30,0"
+                    Spacing="25">
+                    <Label FontAttributes="Bold" Text="TearDownBehavior - Enabled On This Page"></Label>
+                    <Label Text="{Binding Equipment}"></Label>
+                    <Label Text="{Binding PageTitle}"></Label>
+                    <Label Padding="30" Text="Pressing back here should kill the app - it looks like the prev page was collected."></Label>
+                    <Label Padding="30" Text="Going forward from here will also tear down this page. Which causes the same error as back."></Label>
+                </VerticalStackLayout>
+            </ScrollView>
+            <Grid ColumnDefinitions="*,*">
+                <Button
+                    Text="Back"
+                    Command="{Binding GoBackPageCommand}"
+                    HorizontalOptions="Fill"
+                />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

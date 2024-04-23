@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:SadMemory.ViewModels"
+             x:Class="SadMemory.Pages.LocationPage"
+             x:DataType="viewModels:LocationPageViewModel"
+             >
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,60">
+            <ScrollView>
+                <VerticalStackLayout
+                    Padding="30,0"
+                    Spacing="25">
+
+                    <Label Text="{Binding PageTitle}"></Label>
+                    <Button Text="Go To Equipment List" Command="{Binding GoEquipmentListPageCommand}" />
+                    
+                    <Label Text="^ Click to go to the equipment 'list'"></Label>
+                </VerticalStackLayout>
+            </ScrollView>
+            <Grid Grid.Row="1" ColumnDefinitions="*,*">
+                <Button
+                    Text="Dashboard"
+                    Command="{Binding GoDashPageCommand}"
+                    HorizontalOptions="Fill"
+                />
+                <Button
+                    Grid.Column="1"
+                    Text="Locations"
+                    Command="{Binding GoListPageCommand}"
+                    HorizontalOptions="Fill"
+                    IsEnabled="False"
+                />    
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
